@@ -1,0 +1,146 @@
+[
+  {
+    "id": "1",
+    "title": "Mumbai Skyline",
+    "category": "City & Culture",
+    "date": "2026-08-01",
+    "image_url": "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=1200&q=80",
+    "alt_text": "Mumbai city skyline viewed from the waterfront"
+  },
+  {
+    "id": "2",
+    "title": "India Gate",
+    "category": "City & Culture",
+    "date": "2026-08-08",
+    "image_url": "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1200&q=80",
+    "alt_text": "India Gate standing along a broad avenue in New Delhi"
+  },
+  {
+    "id": "3",
+    "title": "Varanasi Ghats",
+    "category": "City & Culture",
+    "date": "2026-08-15",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Varanasi_Ghats.jpg?width=1200",
+    "alt_text": "Historic ghats along the Ganges River in Varanasi"
+  },
+  {
+    "id": "4",
+    "title": "Kolkata Streets",
+    "category": "City & Culture",
+    "date": "2026-08-19",
+    "image_url": "https://images.unsplash.com/photo-1558431382-27e303142255?w=1200&q=80",
+    "alt_text": "Busy street scene in Kolkata with historic city buildings"
+  },
+  {
+    "id": "5",
+    "title": "Chennai Marina",
+    "category": "City & Culture",
+    "date": "2026-08-05",
+    "image_url": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200&q=80",
+    "alt_text": "Marina Beach and the coastline of Chennai"
+  },
+  {
+    "id": "6",
+    "title": "Pink City Jaipur",
+    "category": "City & Culture",
+    "date": "2026-08-12",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pink_City%2C_Jaipur%2C_India_%2821005027858%29.jpg?width=1200",
+    "alt_text": "Historic pink buildings in the old city of Jaipur"
+  },
+    {
+    "id": "7",
+    "title": "Gateway of India",
+    "category": "Heritage",
+    "date": "2026-08-01",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gateway_of_India%2C_Mumbai%2C_India.jpg?width=1200",
+    "alt_text": "The Gateway of India monument overlooking the waterfront in Mumbai"
+  },
+  {
+    "id": "8",
+    "title": "Hawa Mahal",
+    "category": "Heritage",
+    "date": "2026-08-09",
+    "image_url": "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1200&q=80",
+    "alt_text": "The ornate pink facade of Hawa Mahal in Jaipur"
+  },
+  {
+    "id": "9",
+    "title": "Taj Mahal",
+    "category": "Heritage",
+    "date": "2026-08-01",
+    "image_url": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200&q=80",
+    "alt_text": "The white marble Taj Mahal in Agra reflected in a pool"
+  },
+  {
+    "id": "10",
+    "title": "Hampi Temple Ruins",
+    "category": "Heritage",
+    "date": "2026-08-15",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hampi_Temple_Ruins.jpg?width=1200",
+    "alt_text": "Ancient stone temple ruins at the UNESCO heritage site of Hampi"
+  },
+  {
+    "id": "11",
+    "title": "Golden Temple",
+    "category": "Heritage",
+    "date": "2026-08-19",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Golden_Temple_in_Amritsar.jpg?width=1200",
+    "alt_text": "The Golden Temple in Amritsar surrounded by its sacred pool"
+  },
+  {
+    "id": "12",
+    "title": "Mysore Palace",
+    "category": "Heritage",
+    "date": "2026-08-10",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mysore_Palace_Image.jpg?width=1200",
+    "alt_text": "The grand Mysore Palace in Karnataka"
+  },
+  {
+    "id": "13",
+    "title": "Kerala Backwaters",
+    "category": "Nature",
+    "date": "2026-08-05",
+    "image_url": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=1200&q=80",
+    "alt_text": "Traditional boat moving through the lush Kerala backwaters"
+  },
+  {
+    "id": "14",
+    "title": "Ladakh Mountains",
+    "category": "Nature",
+    "date": "2026-08-12",
+    "image_url": "https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=1200&q=80",
+    "alt_text": "Rugged mountains and high-altitude landscape in Ladakh"
+  },
+  {
+    "id": "15",
+    "title": "Goa Coastline",
+    "category": "Nature",
+    "date": "2026-08-19",
+    "image_url": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=1200&q=80",
+    "alt_text": "Palm-lined tropical coastline in Goa"
+  },
+  {
+    "id": "16",
+    "title": "Himalayan Valley",
+    "category": "Nature",
+    "date": "2026-08-02",
+    "image_url": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1200&q=80",
+    "alt_text": "Green Himalayan valley surrounded by snow-covered mountains"
+  },
+  {
+    "id": "17",
+    "title": "Thar Desert",
+    "category": "Nature",
+    "date": "2026-08-09",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Thar_desert_Rajasthan_India.jpg?width=1200",
+    "alt_text": "Sand dunes stretching across the Thar Desert in Rajasthan"
+  },
+  {
+    "id": "18",
+    "title": "Munnar Tea Plantations",
+    "category": "Nature",
+    "date": "2026-08-16",
+    "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tea_plantations_of_Munnar.jpg?width=1200",
+    "alt_text": "Green tea plantations covering the hills of Munnar"
+  }
+]
