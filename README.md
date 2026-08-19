@@ -1,18 +1,49 @@
-# React + Vite
+# Image Gallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A metadata-driven React image gallery built with Vite and plain CSS. It uses a local JSON dataset and local assets from `public/images`.
 
-Currently, two official plugins are available:
+## Live demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[https://thump-n-assignment.vercel.app/](https://thump-n-assignment.vercel.app/)
 
-## React Compiler
+## Completed requirements
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- React functional components and hooks with Vite.
+- No component, UI, gallery, carousel, lightbox, sort, or filter libraries.
+- 18 local images across City & Culture, Heritage, and Nature categories.
+- Responsive 3–6 column gallery grid at every viewport size, with up to six rows for the initial 18-image dataset and consistent image aspect ratios.
+- Case-insensitive stable sorting by title and category, plus chronological date sorting, each ascending or descending.
+- Custom popup controls for sorting and sort direction, matching the category filter UI.
+- Multi-select category filtering with checkbox options generated from the dataset, visible result counts, empty-state handling, and reset controls.
+- Combined filtering and sorting without either control resetting the other.
+- Full-screen lightbox with the selected image, title, category, formatted date, position indicator, keyboard navigation, previous/next controls, boundary disabling, Escape-to-close, and click-outside closing.
+- Image upload with title, category, date, existing/new category selection, image file validation, a 10 MB size limit, and error feedback.
+- Long-press deletion on cards plus a visible delete control for non-touch users, with confirmation. Deleted images are removed from the current collection while their category options remain available.
+- IndexedDB persistence for added/deleted images and `localStorage` persistence for filters, sorting, and categories.
+- Local initial image URLs, so the gallery does not depend on third-party image hosting.
 
-Note: This will impact Vite dev & build performances.
+## Run locally
 
-## Expanding the Oxlint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+To serve the production build locally:
+
+```bash
+npm run build
+npm start
+```
+
+Available checks:
+
+```bash
+npm run lint
+npm run build
+npm run preview
+```
+
+## Deployment
+
+The project is deployed on Vercel at [https://thump-n-assignment.vercel.app/](https://thump-n-assignment.vercel.app/). To create or test a production build locally, run `npm run build` followed by `npm start`; `npm start` serves the generated `dist` directory with Vite Preview.
