@@ -1,7 +1,7 @@
-import ImageGallery from './components/ImageGallery'
+import ImageGallery from "./components/ImageGallery";
 
 function App() {
-  return <ImageGallery />
+  return <ImageGallery />;
 }
 
-export default App
+export default App;
