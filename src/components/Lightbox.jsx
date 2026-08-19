@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { formatGalleryDate } from "../utils/date";
+import Modal from "./Modal";
 
 export default function Lightbox({
   currentIndex,
@@ -32,64 +33,61 @@ export default function Lightbox({
   }, [isFirstImage, isLastImage, onClose, onNext, onPrevious]);
 
   return (
-    <div
-      aria-label={`${image.title} preview`}
-      aria-modal="true"
+    <Modal
+      ariaLabel={`${image.title} preview`}
       className="lightbox"
-      onClick={onClose}
-      role="dialog"
+      onClose={onClose}
+      panelClassName="lightbox-panel"
     >
-      <div className="lightbox-panel" onClick={(event) => event.stopPropagation()}>
-        <button
-          aria-label="Close image preview"
-          className="lightbox-close"
-          onClick={onClose}
-          ref={closeButtonRef}
-          type="button"
-        >
-          <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="m6 6 12 12M18 6 6 18" />
-          </svg>
-        </button>
+      <button
+        aria-label="Close image preview"
+        className="lightbox-close"
+        onClick={onClose}
+        ref={closeButtonRef}
+        type="button"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="m6 6 12 12M18 6 6 18" />
+        </svg>
+      </button>
 
-        <div className="lightbox-media">
-          <img src={image.image_url} alt={image.alt_text} />
-        </div>
-
-        <div className="lightbox-details">
-          <div>
-            <p className="lightbox-category">{image.category}</p>
-            <h2>{image.title}</h2>
-            <time dateTime={image.date}>{formatGalleryDate(image.date)}</time>
-          </div>
-          <p className="lightbox-position" aria-live="polite">
-            {currentIndex + 1} / {totalImages}
-          </p>
-        </div>
-
-        <button
-          aria-label={isFirstImage ? "No previous image" : "Previous image"}
-          className="lightbox-nav lightbox-prev"
-          disabled={isFirstImage}
-          onClick={onPrevious}
-          type="button"
-        >
-          <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="m15 5-7 7 7 7" />
-          </svg>
-        </button>
-        <button
-          aria-label={isLastImage ? "No next image" : "Next image"}
-          className="lightbox-nav lightbox-next"
-          disabled={isLastImage}
-          onClick={onNext}
-          type="button"
-        >
-          <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="m9 5 7 7-7 7" />
-          </svg>
-        </button>
+      <div className="lightbox-media">
+        <img src={image.image_url} alt={image.alt_text} />
       </div>
-    </div>
+
+      <div className="lightbox-details">
+        <div>
+          <p className="lightbox-category">{image.category}</p>
+          <h2>{image.title}</h2>
+          <time dateTime={image.date}>{formatGalleryDate(image.date)}</time>
+        </div>
+        <p className="lightbox-position" aria-live="polite">
+          {currentIndex + 1} / {totalImages}
+        </p>
+      </div>
+
+      <button
+        aria-label={isFirstImage ? "No previous image" : "Previous image"}
+        className="lightbox-nav lightbox-prev"
+        disabled={isFirstImage}
+        onClick={onPrevious}
+        type="button"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="m15 5-7 7 7 7" />
+        </svg>
+      </button>
+      <button
+        aria-label={isLastImage ? "No next image" : "Next image"}
+        className="lightbox-nav lightbox-next"
+        disabled={isLastImage}
+        onClick={onNext}
+        type="button"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="m9 5 7 7-7 7" />
+        </svg>
+      </button>
+    </Modal>
   );
 }

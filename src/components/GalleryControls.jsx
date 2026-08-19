@@ -1,16 +1,61 @@
 import { useEffect, useRef, useState } from "react";
 
+function SortMenu({ label, value, options, onChange, disabled = false }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <details
+      className={`sort-menu${disabled ? " is-disabled" : ""}`}
+      onToggle={(event) => setIsOpen(event.currentTarget.open)}
+      open={isOpen && !disabled}
+    >
+      <summary
+        aria-disabled={disabled}
+        onClick={(event) => {
+          if (disabled) event.preventDefault();
+        }}
+      >
+        <span>{value ? options.find((option) => option.value === value)?.label : label}</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="m7 10 5 5 5-5" />
+        </svg>
+      </summary>
+      <div className="sort-menu-panel">
+        {options.map((option) => (
+          <button
+            className={option.value === value ? "is-selected" : ""}
+            key={option.value}
+            onClick={() => {
+              onChange(option.value);
+              setIsOpen(false);
+            }}
+            type="button"
+          >
+            {option.label}
+            {option.value === value && <span aria-hidden="true">✓</span>}
+          </button>
+        ))}
+      </div>
+    </details>
+  );
+}
+
 export default function GalleryControls({
   categories,
   selectedCategories,
   sortField,
+  sortDirection,
   onReset,
+  onUpload,
   onSortFieldChange,
+  onSortDirectionChange,
   onToggleCategory,
   totalCount,
   visibleCount,
 }) {
   const categoryMenuRef = useRef(null);
+  const sortFieldMenuRef = useRef(null);
+  const sortDirectionMenuRef = useRef(null);
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
   const hasActiveControls = selectedCategories.size > 0 || sortField;
   const selectedCategoryCount = selectedCategories.size;
@@ -20,9 +65,20 @@ export default function GalleryControls({
       if (!categoryMenuRef.current?.contains(event.target)) {
         setIsCategoryMenuOpen(false);
       }
+      [sortFieldMenuRef, sortDirectionMenuRef].forEach((menuRef) => {
+        if (!menuRef.current?.contains(event.target)) {
+          const details = menuRef.current?.querySelector("details");
+          if (details?.open) details.open = false;
+        }
+      });
     };
     const closeOnEscape = (event) => {
-      if (event.key === "Escape") setIsCategoryMenuOpen(false);
+      if (event.key !== "Escape") return;
+      setIsCategoryMenuOpen(false);
+      [sortFieldMenuRef, sortDirectionMenuRef].forEach((menuRef) => {
+        const details = menuRef.current?.querySelector("details");
+        if (details?.open) details.open = false;
+      });
     };
 
     document.addEventListener("pointerdown", closeOnOutsideInteraction);
@@ -70,18 +126,42 @@ export default function GalleryControls({
               </div>
             </div>
           </details>
-          <label className="sort-select">
-            <span className="visually-hidden">Sort images by</span>
-            <select onChange={(event) => onSortFieldChange(event.target.value)} value={sortField}>
-              <option value="">Sort</option>
-              <option value="title">Title</option>
-              <option value="category">Category</option>
-              <option value="date">Date</option>
-            </select>
-          </label>
+          <div className="sort-select" ref={sortFieldMenuRef}>
+            <SortMenu
+              label="Sort"
+              onChange={onSortFieldChange}
+              options={[
+                { value: "title", label: "Title" },
+                { value: "category", label: "Category" },
+                { value: "date", label: "Date" },
+              ]}
+              value={sortField}
+            />
+          </div>
+          <div className="sort-select" ref={sortDirectionMenuRef}>
+            <SortMenu
+              disabled={!sortField}
+              label="Direction"
+              onChange={onSortDirectionChange}
+              options={[
+                { value: "asc", label: "Ascending" },
+                { value: "desc", label: "Descending" },
+              ]}
+              value={sortDirection}
+            />
+          </div>
         </div>
 
-        <button className="reset-button" disabled={!hasActiveControls} onClick={onReset} type="button">
+        <button className="upload-button" onClick={onUpload} type="button">
+          <span aria-hidden="true">＋</span> Add image
+        </button>
+
+        <button
+          className="reset-button"
+          disabled={!hasActiveControls}
+          onClick={onReset}
+          type="button"
+        >
           Reset all
         </button>
       </div>
