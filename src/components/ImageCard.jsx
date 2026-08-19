@@ -1,9 +1,23 @@
 import { memo } from "react";
 import { formatGalleryDate } from "../utils/date";
 
-function ImageCard({ image }) {
+function ImageCard({ image, onOpen }) {
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onOpen();
+    }
+  };
+
   return (
-    <article className="card">
+    <article
+      aria-label={`Open ${image.title}`}
+      className="card"
+      onClick={onOpen}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex="0"
+    >
       <div className="card-image">
         <img src={image.image_url} alt={image.alt_text} loading="lazy" />
       </div>
