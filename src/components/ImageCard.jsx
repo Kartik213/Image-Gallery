@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { formatGalleryDate } from "../utils/date";
 
-export default function ImageCard({ image }) {
+function ImageCard({ image }) {
   return (
     <article className="card">
       <div className="card-image">
@@ -17,3 +18,5 @@ export default function ImageCard({ image }) {
     </article>
   );
 }
+
+export default memo(ImageCard);

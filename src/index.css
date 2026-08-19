@@ -136,6 +136,200 @@ img {
   letter-spacing: 0.1em;
 }
 
+.gallery-controls {
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto 34px;
+}
+
+.results-summary {
+  margin: 14px 0 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  text-align: right;
+}
+
+.results-summary strong {
+  color: var(--text);
+}
+
+.filter-bar,
+.filtering-controls,
+.filter-options {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-bar {
+  min-height: 64px;
+  padding: 12px 0;
+  justify-content: space-between;
+  border-top: 1px solid rgba(10, 15, 20, 0.16);
+  border-bottom: 1px solid rgba(10, 15, 20, 0.16);
+}
+
+.category-menu {
+  position: relative;
+}
+
+.category-menu summary,
+.filtering-controls select,
+.reset-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid rgba(10, 15, 20, 0.2);
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.55);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.category-menu summary {
+  gap: 8px;
+  list-style: none;
+}
+
+.category-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.category-menu summary svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.8;
+}
+
+.category-menu summary b {
+  min-width: 19px;
+  padding: 2px 5px;
+  border-radius: 999px;
+  color: white;
+  background: var(--text);
+  font-size: 0.68rem;
+  text-align: center;
+}
+
+.category-menu[open] summary,
+.category-menu summary:hover,
+.filtering-controls select:not(:disabled):hover {
+  border-color: var(--text);
+  background: white;
+}
+
+.category-menu-panel {
+  position: absolute;
+  z-index: 2;
+  top: calc(100% + 10px);
+  left: 0;
+  width: min(320px, calc(100vw - 32px));
+  padding: 18px;
+  border: 1px solid rgba(10, 15, 20, 0.14);
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(10, 15, 20, 0.13);
+}
+
+.category-menu-panel p {
+  margin: 0 0 12px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.filter-options {
+  align-items: stretch;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 8px;
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.84rem;
+  cursor: pointer;
+}
+
+.filter-option:hover,
+.filter-option:has(input:checked) {
+  background: #f4f4f4;
+}
+
+.filter-option input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--text);
+}
+
+.filtering-controls {
+  margin-left: auto;
+}
+
+.filtering-controls select,
+.reset-button {
+  appearance: none;
+}
+
+.reset-button {
+  border-color: transparent;
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.filtering-controls select:disabled,
+.reset-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.empty-gallery {
+  width: 100%;
+  max-width: 1480px;
+  min-height: 260px;
+  margin: 0 auto;
+  padding: 56px 24px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  border: 1px dashed rgba(10, 15, 20, 0.22);
+  border-radius: 14px;
+}
+
+.empty-gallery h2 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.empty-gallery p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
 .gallery {
   width: 100%;
   max-width: 1480px;
@@ -269,6 +463,10 @@ img {
   .gallery-header {
     margin-bottom: 34px;
   }
+
+  .filtering-controls {
+    justify-content: flex-start;
+  }
 }
 
 /* 3 columns */
@@ -301,6 +499,18 @@ img {
     row-gap: 28px;
   }
 
+  .filter-bar {
+    min-height: 0;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .filter-options,
+  .filtering-controls {
+    gap: 6px;
+  }
+
   .card-image {
     border-radius: 8px;
   }
@@ -328,5 +538,27 @@ img {
 
   .card-meta time {
     white-space: nowrap;
+  }
+
+  .filter-bar {
+    align-items: flex-start;
+  }
+
+  .filtering-controls {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .sort-select {
+    flex: 1;
+  }
+
+  .filtering-controls select {
+    width: 100%;
+  }
+
+  .reset-button {
+    margin-left: auto;
   }
 }
