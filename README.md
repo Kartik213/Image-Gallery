@@ -1,49 +1,73 @@
-# Image Gallery
+# Offline Image Gallery
 
-A metadata-driven React image gallery built with Vite and plain CSS. It uses a local JSON dataset and local assets from `public/images`.
+A metadata-driven, offline-first image gallery built with React and Vite.
 
-## Live demo
+The application allows users to browse, filter, sort, upload, preview, and delete images while persisting user data locally in the browser. It does not require a backend or third-party image hosting.
 
-[https://thump-n-assignment.vercel.app/](https://thump-n-assignment.vercel.app/)
+## Live Demo
 
-## Completed requirements
+## Features
 
-- React functional components and hooks with Vite.
-- No component, UI, gallery, carousel, lightbox, sort, or filter libraries.
-- 18 local images across City & Culture, Heritage, and Nature categories.
-- Responsive 3–6 column gallery grid at every viewport size, with up to six rows for the initial 18-image dataset and consistent image aspect ratios.
-- Case-insensitive stable sorting by title and category, plus chronological date sorting, each ascending or descending.
-- Custom popup controls for sorting and sort direction, matching the category filter UI.
-- Multi-select category filtering with checkbox options generated from the dataset, visible result counts, empty-state handling, and reset controls.
-- Combined filtering and sorting without either control resetting the other.
-- Full-screen lightbox with the selected image, title, category, formatted date, position indicator, keyboard navigation, previous/next controls, boundary disabling, Escape-to-close, and click-outside closing.
-- Image upload with title, category, date, existing/new category selection, image file validation, a 10 MB size limit, and error feedback.
-- Long-press deletion on cards plus a visible delete control for non-touch users, with confirmation. Deleted images are removed from the current collection while their category options remain available.
-- IndexedDB persistence for added/deleted images and `localStorage` persistence for filters, sorting, and categories.
-- Local initial image URLs, so the gallery does not depend on third-party image hosting.
+- **Responsive gallery** — 3–6 column image grid with consistent image aspect ratios.
+- **Multi-select filtering** — Filter images by category with dynamically generated category options.
+- **Sorting** — Sort by title, category, or date in ascending or descending order.
+- **Combined filtering and sorting** — Filtering and sorting work independently and can be applied together.
+- **Full-screen lightbox** — Preview images with metadata, position indicator, previous/next navigation, and keyboard controls.
+- **Image uploads** — Add images with a title, category, and date.
+- **Category management** — Select an existing category or create a new one while uploading.
+- **Upload validation** — Validates image files and enforces a 10 MB size limit.
+- **Image deletion** — Delete images using long-press on touch devices or a visible delete control on other devices.
+- **Persistent image storage** — Added and deleted images are persisted using IndexedDB.
+- **Persistent UI state** — Filters, sorting, and categories are persisted using localStorage.
+- **Client-side only** — No backend or external image hosting is required.
+- **Keyboard interactions** — Lightbox navigation and closing can be controlled from the keyboard.
 
-## Run locally
+## Tech Stack
 
-```bash
-npm install
-npm run dev
+- React
+- Vite
+- JavaScript
+- CSS
+- IndexedDB
+- localStorage
+
+## Architecture
+
+The application is entirely client-side and does not depend on a backend.
+
+```text
+                         React UI
+                            │
+                            ▼
+                    Gallery State
+                     ┌──────┴──────┐
+                     │             │
+                     ▼             ▼
+                 IndexedDB    localStorage
+                     │             │
+              ┌──────┴──────┐   ┌──┴───────────┐
+              │             │   │              │
+          Image data     Metadata Filters     Sorting
+          User uploads              │              │
+          Deletions                 └──────┬───────┘
+                                           │
+                                           ▼
+                                   Persistent UI State
+
 ```
 
-To serve the production build locally:
+## Installation & Running Locally
+
+### Prerequisites
+
+Make sure the following are installed on your system:
+
+- [Node.js](https://nodejs.org/) — v18 or later recommended
+- npm — included with Node.js
+- Git
+
+### 1. Clone the repository
 
 ```bash
-npm run build
-npm start
-```
-
-Available checks:
-
-```bash
-npm run lint
-npm run build
-npm run preview
-```
-
-## Deployment
-
-The project is deployed on Vercel at [https://thump-n-assignment.vercel.app/](https://thump-n-assignment.vercel.app/). To create or test a production build locally, run `npm run build` followed by `npm start`; `npm start` serves the generated `dist` directory with Vite Preview.
+git clone https://github.com/Kartik213/offline-image-gallery.git
+cd offline-image-gallery
