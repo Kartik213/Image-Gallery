@@ -6,6 +6,8 @@ The application allows users to browse, filter, sort, upload, preview, and delet
 
 ## Live Demo
 
+[Live Demo](https://image-gallery-lemon-phi.vercel.app/)
+
 ## Features
 
 - **Responsive gallery** — 3–6 column image grid with consistent image aspect ratios.
